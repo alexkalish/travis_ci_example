@@ -10,11 +10,20 @@ env:
   - BUILD_JOB=models
   - BUILD_JOB=rubocop
 
+before_install:
+  - echo 'before install'
+
+install:
+  - echo 'installing all the things'
+
 before_script:
+  - echo 'before script'
   - cp config/database-travis.yml config/database.yml
   - bundle exec rake db:create db:schema:load
 
-script: ci/travis.sh
+script:
+  - echo 'lets build this thing'
+  - ci/travis.sh
 
 notifications:
   emails:
