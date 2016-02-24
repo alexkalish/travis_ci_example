@@ -1,6 +1,8 @@
 language: ruby
+
 rvm:
   - 2.1.5
+
 sudo: false
 
 services:
@@ -24,6 +26,9 @@ before_script:
 script:
   - echo 'lets build this thing'
   - ci/travis.sh
+
+after_success:
+  - echo 'time to deploy'
 
 notifications:
   emails:
