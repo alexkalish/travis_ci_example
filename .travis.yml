@@ -40,3 +40,8 @@ after_success:
 notifications:
   emails:
     - alexkalish@gmail.com
+
+# Limit builds to just the master branch, plus PRs.
+branches:
+  only:
+    - master
