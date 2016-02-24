@@ -15,8 +15,9 @@ env:
 before_install:
   - echo 'before install'
 
-install:
-  - echo 'installing all the things'
+# Travis automatically triggers bundler
+# install:
+#   - echo 'install all the things'
 
 before_script:
   - echo 'before script'
