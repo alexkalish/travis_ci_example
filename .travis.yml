@@ -3,30 +3,37 @@ language: ruby
 rvm:
   - 2.1.5
 
+# Use the new container based infrastructure.
 sudo: false
 
 services:
   - postgresql
 
+# Parallelize your build based on arbitrary variables.
 env:
   - BUILD_JOB=models
   - BUILD_JOB=rubocop
 
+# There are several hooks for customizing the build.
 before_install:
   - echo 'before install'
 
-install:
-  - echo 'installing all the things'
+# Travis automatically triggers bundler
+# install:
+#   - echo 'install all the things'
 
+# Preparation for running the build.
 before_script:
   - echo 'before script'
   - cp config/database-travis.yml config/database.yml
   - bundle exec rake db:create db:schema:load
 
+# Run the build!
 script:
   - echo 'lets build this thing'
   - ci/travis.sh
 
+# Travis supports post-build deploy.
 after_success:
   - echo 'time to deploy'
 
