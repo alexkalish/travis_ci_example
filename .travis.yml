@@ -3,6 +3,17 @@ rvm:
   - 2.1.5
 sudo: false
 
+services:
+  - postgresql
+
+before_script:
+  - cp config/database-travis.yml config/database.yml
+  - bundle exec rake db:create db:schema:load
+
+env:
+  - BUILD_JOB=models
+  - BUILD_JOB=rubocop
+
 notifications:
   emails:
     - alexkalish@gmail.com

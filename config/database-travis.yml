@@ -1,0 +1,8 @@
+default: &default
+  adapter: postgresql
+  encoding: utf-8
+  pool: 5
+
+test:
+  <<: *default
+  database: travis_ci_example_test
