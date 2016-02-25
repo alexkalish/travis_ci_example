@@ -5,10 +5,10 @@ then
 
   bundle exec rspec spec/models
 
-elif [ $SPEC_GROUP = 'rubocop' ]
+elif [ $BUILD_JOB = 'rubocop' ]
 then
 
-  rubocop
+  bundle exec rubocop
 
 fi
 

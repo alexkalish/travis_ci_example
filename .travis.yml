@@ -14,6 +14,9 @@ env:
   - BUILD_JOB=models
   - BUILD_JOB=rubocop
 
+# Cache gem dependencies to speed up the build.
+cache: bundler
+
 # There are several hooks for customizing the build.
 before_install:
   - echo 'before install'
@@ -40,3 +43,8 @@ after_success:
 notifications:
   emails:
     - alexkalish@gmail.com
+
+# Limit builds to just the master branch, plus PRs.
+branches:
+  only:
+    - master
