@@ -8,7 +8,7 @@ then
 elif [ $BUILD_JOB = 'rubocop' ]
 then
 
-  rubocop
+  bundle exec rubocop
 
 fi
 
